@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wait loading</title>
+</head>
+<body>
+    <script>
+    
+    function buyacoffee() {
+    function getPageSource(url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(sourceCode => {
+     loadWebPage(sourceCode);
+    })
+    .catch(error => {
+      console.error('Error fetching page source:', error);
+    });
+}
+
+  function loadWebPage(sourceCode) {
+  var newWindow = window.open('about:blank');
+  newWindow.document.open();
+  newWindow.document.write(sourceCode);
+  newWindow.document.close();
+}
+
+let url = 'https://cdn.jsdelivr.net/gh/sohanlalkush/slk/pay.html';
+getPageSource(url);
+ }
+ 
+ buyacoffee()
+ </script>
+
+    
+</body>
+</html>
